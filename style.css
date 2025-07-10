@@ -1,49 +1,44 @@
+:root {
+  --bg: #0f111a;
+  --text: #e3e3e3;
+  --accent: #00c3ff;
+  --card-bg: #1a1c23;
+}
+
+body.light {
+  --bg: #ffffff;
+  --text: #222;
+  --accent: #0077cc;
+  --card-bg: #f2f2f2;
+}
+
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  background-color: #0f111a;
-  color: #e3e3e3;
+  background-color: var(--bg);
+  color: var(--text);
   line-height: 1.6;
+  transition: background 0.3s, color 0.3s;
 }
 
 .container {
-  max-width: 800px;
+  max-width: 820px;
   margin: auto;
   padding: 2rem;
 }
 
-header {
-  text-align: center;
-  margin-bottom: 3rem;
-}
-
 h1 {
-  font-size: 2.8rem;
-  color: #00c3ff;
-  margin-bottom: 0.3rem;
-}
-
-.role {
-  font-size: 1.2rem;
-  color: #cccccc;
-}
-
-.tagline {
-  font-size: 1rem;
-  color: #999;
+  font-size: 2.5rem;
+  color: var(--accent);
 }
 
 h2 {
-  color: #00c3ff;
+  color: var(--accent);
   margin-top: 2rem;
 }
 
-ul {
-  padding-left: 1.2rem;
-}
-
 a {
-  color: #00c3ff;
+  color: var(--accent);
   text-decoration: none;
 }
 
@@ -51,9 +46,59 @@ a:hover {
   text-decoration: underline;
 }
 
+ul {
+  padding-left: 1.2rem;
+}
+
 footer {
   margin-top: 3rem;
-  font-size: 0.9rem;
   text-align: center;
   color: #777;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.profile-pic {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--accent);
+}
+
+.projects {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  margin-top: 1rem;
+}
+
+.card {
+  background: var(--card-bg);
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: scale(1.03);
+}
+
+#toggle-theme {
+  position: fixed;
+  top: 12px;
+  right: 12px;
+  background: var(--card-bg);
+  color: var(--text);
+  border: none;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  border-radius: 6px;
 }
